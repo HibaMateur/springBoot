@@ -13,11 +13,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
+@NoArgsConstructor
+@AllArgsConstructor
 
 @Entity
 @Getter
@@ -25,6 +27,7 @@ import lombok.Setter;
 @Table( name = "Stock")
 
 public class Stock implements Serializable {
+
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name="idStock")
@@ -42,5 +45,12 @@ public class Stock implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Produit> Produit;
 
+
+	public Stock(String LibelleStock, Integer qte, Integer qteMin) {
+		this.LibelleStock=LibelleStock;
+		this.qte=qte;
+		this.qteMin=qteMin;
+		
+	}
 
 }

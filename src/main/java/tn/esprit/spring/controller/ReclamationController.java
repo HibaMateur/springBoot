@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import tn.esprit.spring.entity.Reclamation;
+import tn.esprit.spring.entity.Stock;
 import tn.esprit.spring.service.reclamationServiceImpl;
 
 
@@ -38,10 +39,10 @@ public class ReclamationController {
 		return reclamationService.retrieveReclamation(reclamationId);
 	}
 
-	@PostMapping(value="/add-reclamation/{idClient}")
-	public Reclamation addReclamation(@RequestBody Reclamation s ,@PathVariable Long idClient)
+	@PostMapping(value="/add-reclamation")
+	public Reclamation addReclamation(@RequestBody Reclamation s )
 	{
-		Reclamation reclamations = reclamationService.addReclamation(s,idClient);
+		Reclamation reclamations = reclamationService.addReclamation(s);
 		return reclamations;
 	}
 

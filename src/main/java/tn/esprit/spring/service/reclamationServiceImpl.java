@@ -22,8 +22,8 @@ public class reclamationServiceImpl implements reclamationService{
 	}
 	
 	@Override
-	public Reclamation addReclamation(Reclamation r,Long idClient) {
-		r.setClientReclamation(clientService.retrieveClient(idClient));
+	public Reclamation addReclamation(Reclamation r) {
+		//r.setClientReclamation(clientService.retrieveClient(r.getClientReclamation().getIdClient()));
         return this.Reclamationrepo.save(r);
 	}
 	@Override

@@ -31,7 +31,7 @@ public class ExcelHelper {
     return true;
   }
 
-  public static List<Stock> excelToTutorials(InputStream is) {
+  public static List<Stock> excelToStocks(InputStream is) {
     try {
       Workbook workbook = new XSSFWorkbook(is);
 
@@ -57,19 +57,18 @@ public class ExcelHelper {
         int cellIdx = 0;
         while (cellsInRow.hasNext()) {
           Cell currentCell = cellsInRow.next();
-          Integer qte =(int) currentCell.getNumericCellValue();
-          Integer qteMin =(int) currentCell.getNumericCellValue();
+       
           switch (cellIdx) {
           case 0:
         	  stock.setLibelleStock(currentCell.getStringCellValue());
             break;
 
           case 1:
-        	  stock.setQte(qte);
+        	  stock.setQte((int)currentCell.getNumericCellValue());
             break;
 
           case 2:
-        	  stock.setQteMin(qteMin);
+        	  stock.setQteMin((int) currentCell.getNumericCellValue());
             break;
 
 

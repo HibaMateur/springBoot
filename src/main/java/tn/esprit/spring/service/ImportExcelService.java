@@ -18,7 +18,7 @@ public class ImportExcelService {
 
 	  public void save(MultipartFile file) {
 	    try {
-	      List<Stock> stocks = ExcelHelper.excelToTutorials(file.getInputStream());
+	      List<Stock> stocks = ExcelHelper.excelToStocks(file.getInputStream());
 	      repository.saveAll(stocks);
 	    } catch (IOException e) {
 	      throw new RuntimeException("fail to store excel data: " + e.getMessage());

@@ -10,7 +10,7 @@ import tn.esprit.spring.entity.Stock;
 public interface reclamationService {
 	List<Reclamation> retrieveAllReclamations();
 
-	Reclamation addReclamation(Reclamation r,Long idClient);
+	Reclamation addReclamation(Reclamation r);
 
 	Reclamation updateReclamation(Reclamation r);
 
